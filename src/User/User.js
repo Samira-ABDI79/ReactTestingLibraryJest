@@ -11,7 +11,7 @@ function User() {
 
   return (
 <>
-<div>
+<div className=' flex justify-center items-center py-16 flex-col' >
       <UserForm onUserAdd={onUserAdd} />
       <hr />
       <UserList users={users} />
