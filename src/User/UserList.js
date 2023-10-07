@@ -16,7 +16,7 @@ function UserList({ users }) {
           <th className="px-6 py-3" >Email</th>
         </tr>
       </thead>
-      <tbody>{renderedUsers}</tbody>
+      <tbody data-testid="users" >{renderedUsers}</tbody>
     </table>
   );
 }
