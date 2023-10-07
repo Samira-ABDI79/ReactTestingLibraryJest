@@ -1,20 +1,24 @@
-import { useState } from 'react';
-import UserForm from './UserForm';
-import UserList from './UserList';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import User from './User/User';
+import ProductList from './Product/productList'
 
 function App() {
-  const [users, setUsers] = useState([]);
 
-  const onUserAdd = (user) => {
-    setUsers([...users, user]);
-  };
+
 
   return (
-    <div>
-      <UserForm onUserAdd={onUserAdd} />
-      <hr />
-      <UserList users={users} />
-    </div>
+<>
+
+      <Router>
+      <Routes>
+      <Route path="/user" element={<User />} />
+        <Route path="/product" element={<ProductList />} />
+      </Routes>
+    </Router>
+
+    
+</>
   );
 }
 
