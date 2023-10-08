@@ -1,27 +1,25 @@
-import {render , screen} from '@testing-library/react'
-import User from '@testing-library/user-event';
-
+import { render, screen, fireEvent } from '@testing-library/react';
 import UserPage from './User';
-test('can receive a new user and show it on a list',()=>{
-    render(<UserPage />)
-    const nameInput = screen.getByRole('textbox', {
-        name: /name/i,
-      });
-      const emailInput = screen.getByRole('textbox', {
-        name: /email/i,
-      });
-      const button = screen.getByRole('button');
-    
-      User.click(nameInput);
-      User.keyboard('jane');
-      User.click(emailInput);
-      User.keyboard('jane@jane.com');
-    
-      User.click(button);
-    
-      const name = screen.getByRole('cell', { name: 'jane' });
-      const email = screen.getByRole('cell', { name: 'jane@jane.com' });
-    
-      expect(name).toBeInTheDocument();
-      expect(email).toBeInTheDocument();
-})
+
+test('can add a new user and display it in the list', () => {
+  render(<UserPage />);
+
+  // Find input elements
+  const nameInput = screen.getByLabelText('Name');
+  const emailInput = screen.getByLabelText('Email');
+  const addButton = screen.getByRole('button', { name: 'Add User' });
+
+  // Enter user information
+  fireEvent.change(nameInput, { target: { value: 'Jane' } });
+  fireEvent.change(emailInput, { target: { value: 'jane@example.com' } });
+
+  // Click the add button
+  fireEvent.click(addButton);
+
+  // Verify that the user is added to the list
+  const nameCell = screen.getByRole('cell', { name: 'Jane' });
+  const emailCell = screen.getByRole('cell', { name: 'jane@example.com' });
+
+  expect(nameCell).toBeInTheDocument();
+  expect(emailCell).toBeInTheDocument();
+});
