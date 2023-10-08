@@ -1,7 +1,10 @@
+import { v4 as uuidv4 } from 'uuid';
 function UserList({ users }) {
+  
   const renderedUsers = users.map((user) => {
+    const uniqueKey = uuidv4();
     return (
-      <tr key={user.name}>
+      <tr key={uniqueKey}>
         <td>{user.name}</td>
         <td>{user.email}</td>
       </tr>
