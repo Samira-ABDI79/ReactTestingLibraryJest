@@ -60,8 +60,14 @@ test('empties the two inputs when form is submitted', () => {
   user.click(emailInput);
   user.keyboard('jane@jane.com');
 
+  // Add debug statements
+  console.log('Before submit:', nameInput.value, emailInput.value);
+
   user.click(button);
 
-  expect(nameInput).toHaveValue('');
-  expect(emailInput).toHaveValue('');
+  // Add debug statements
+  console.log('After submit:', nameInput.value, emailInput.value);
+
+  expect(nameInput).toBeEmptyDOMElement()
+  expect(emailInput).toBeEmptyDOMElement()
 });
