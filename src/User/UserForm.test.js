@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import user from '@testing-library/user-event';
 import UserForm from './UserForm';
 
@@ -56,18 +56,12 @@ test('empties the two inputs when form is submitted', () => {
   const button = screen.getByRole('button');
 
   user.click(nameInput);
-  user.keyboard('jane');
+  user.keyboard('fww');
   user.click(emailInput);
   user.keyboard('jane@jane.com');
 
-  // Add debug statements
-  console.log('Before submit:', nameInput.value, emailInput.value);
+  fireEvent.click(button);
 
-  user.click(button);
-
-  // Add debug statements
-  console.log('After submit:', nameInput.value, emailInput.value);
-
-  expect(nameInput).toBeEmptyDOMElement()
-  expect(emailInput).toBeEmptyDOMElement()
+  expect(nameInput).toHaveValue('');
+  expect(emailInput).toHaveValue('');
 });
