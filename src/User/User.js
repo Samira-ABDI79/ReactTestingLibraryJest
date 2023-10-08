@@ -2,7 +2,7 @@ import { useState } from 'react';
 import UserForm from './UserForm';
 import UserList from './UserList';
 
-function User() {
+function UserPage() {
   const [users, setUsers] = useState([]);
 
   const onUserAdd = (user) => {
@@ -10,15 +10,12 @@ function User() {
   };
 
   return (
-<>
-<div className=' flex justify-center items-center py-16 flex-col' >
+    <div className=' flex justify-center items-center py-16 flex-col' >
       <UserForm onUserAdd={onUserAdd} />
       <hr />
       <UserList users={users} />
     </div>
-    
-</>
   );
 }
 
-export default User;
+export default UserPage;
