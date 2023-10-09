@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from 'react';
 
 export default function FilterList() {
@@ -21,7 +20,7 @@ export default function FilterList() {
   return (
     <>
       <div className="flex justify-center items-center py-16 flex-col">
-      <label htmlFor="Search">Search</label>
+        <label htmlFor="Search">Search</label>
         <input
           type="text"
           id="Search"
@@ -47,6 +46,11 @@ export default function FilterList() {
             }
             return null;
           })}
+          {filter && users.every((item) => item.title.toUpperCase().indexOf(filter) === -1) && (
+            <li>
+              <p>No matching data found.</p>
+            </li>
+          )}
         </ul>
       </div>
     </>
