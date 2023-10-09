@@ -5,6 +5,7 @@ import ProductList from './Product/productList'
 import Modal from './Modal/Modal';
 import BasicTabs from './Tabs/Tabs';
 import Layout from './Layout/Layout';
+import FilterList from './FilterList/FilterList';
 
 function App() {
 
@@ -20,6 +21,8 @@ function App() {
         <Route path="/product" element={<ProductList />} />
         <Route path="/modal" element={<Modal />} />
         <Route path="/" element={<BasicTabs />} />
+        <Route path="/filter" element={<FilterList />} />
+
 
 
       </Routes>
