@@ -21,9 +21,10 @@ export default function FilterList() {
   return (
     <>
       <div className="flex justify-center items-center py-16 flex-col">
+      <label htmlFor="Search">Search</label>
         <input
           type="text"
-          id="myInput"
+          id="Search"
           className="w-[60%] text-base px-5 py-3 border border-gray-300 mb-3"
           onChange={handleInputChange}
           placeholder="Search for names.."
