@@ -35,11 +35,11 @@ test('User can accept  the terms', () => {
   // User accepts the terms
   const AcceptButton = screen.getByRole('button', { name: /i accept/i });
 
-  expect(AcceptButton).toBeInTheDocument();
+ 
   fireEvent.click(AcceptButton);
-  const userChoice =  screen.getByTestId('userChoice');
-  expect(userChoice).toBeInTheDocument();
-  expect(userChoice).toHaveValue('accept');
+  expect(screen.getByText('accept')).toBeInTheDocument()
+
+
 
 
 });
@@ -55,14 +55,11 @@ test('User can  decline the terms', () => {
   // User accepts the terms
   const declineButton = screen.getByRole('button', { name: /decline/i });
 
-  expect(declineButton).toBeInTheDocument();
+  
   fireEvent.click(declineButton);
-  const userChoice =  screen.getByTestId('userChoice');
-  expect(userChoice).toBeInTheDocument();
+  
 
-
-
- 
+  expect(screen.getByText('decline')).toBeInTheDocument()
 
 
 });
