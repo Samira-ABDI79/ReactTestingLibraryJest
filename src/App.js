@@ -12,8 +12,9 @@ function App() {
 
   return (
 <>
-<Layout>
+
       <Router>
+      <Layout>
       <Routes>
       <Route path="/user" element={<UserPage />} />
         <Route path="/product" element={<ProductList />} />
@@ -22,9 +23,10 @@ function App() {
 
 
       </Routes>
+    </Layout>
+
     </Router>
 
-    </Layout>
 </>
   );
 }
