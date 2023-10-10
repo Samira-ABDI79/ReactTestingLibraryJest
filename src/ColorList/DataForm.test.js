@@ -1,4 +1,4 @@
-import { render, fireEvent,screen } from '@testing-library/react';
+import { render,screen } from '@testing-library/react';
 import DataForm from './DataForm';
 
 test('selecting different elements', () => {
