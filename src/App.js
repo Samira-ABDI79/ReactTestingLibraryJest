@@ -8,6 +8,8 @@ import Layout from './Layout/Layout';
 import FilterList from './FilterList/FilterList';
 import ColorList from './ColorList/ColorList';
 
+import CommentList from './Comments/CommentList';
+
 function App() {
 
 
@@ -24,6 +26,8 @@ function App() {
         <Route path="/" element={<BasicTabs />} />
         <Route path="/filter" element={<FilterList />} />
         <Route path="/color" element={<ColorList />} />
+        <Route path="/comments" element={<CommentList />} />
+
 
 
 
